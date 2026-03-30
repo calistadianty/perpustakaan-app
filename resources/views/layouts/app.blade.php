@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         
         <!-- Scripts -->
+        {{-- PENJELASAN BLADE: @vite digunakan untuk memuat tag CSS (seperti Tailwind) dan JS hasil dari kompilasi Laravel Vite. --}}
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
@@ -29,6 +30,7 @@
 
             <!-- Page Content -->
             <main>
+                {{-- PENJELASAN BLADE: {{ $slot }} adalah area dinamis. Konten dari halaman spesifik (seperti dashboard atau profile) akan disisipkan ke bagian ini. --}}
                 {{ $slot }}
             </main>
         </div>

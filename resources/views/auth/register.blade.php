@@ -9,8 +9,9 @@
 
 <style>
 body {
-    background: linear-gradient(to bottom right, #1f7a8c, #bfdbf7);
+    background: linear-gradient(135deg, #1e3a8a 0%, #eff6ff 100%);
     font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
 .register-card {
@@ -19,7 +20,7 @@ body {
     margin: 80px auto;
     padding: 40px;
     border-radius: 24px;
-    box-shadow: 0 20px 40px #05668d;
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
     transition: 0.3s ease;
 }
 
@@ -31,7 +32,8 @@ body {
     text-align: center;
     font-weight: 800;
     font-size: 28px;
-    color: #05668d;
+    color: #1e3a8a;
+    letter-spacing: -0.025em;
 }
 
 .welcome-text {
@@ -43,6 +45,7 @@ body {
 .welcome-text h2 {
     font-size: 22px;
     font-weight: 700;
+    color: #1e293b;
 }
 
 .welcome-text p {
@@ -71,24 +74,26 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #05668d;
-    box-shadow: 0 0 0 3px rgba(5, 102, 141, 0.2);
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 .btn-register {
     width: 100%;
-    background: #05668d;
+    background: #1e3a8a;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border-radius: 14px;
     font-weight: 700;
-    transition: 0.25s;
+    transition: all 0.25s;
     margin-top: 8px;
+    box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
 }
 
 .btn-register:hover {
-    background: #034078;
-    transform: scale(1.02);
+    background: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(30, 58, 138, 0.3);
 }
 
 .login-link {
@@ -98,8 +103,13 @@ body {
 }
 
 .login-link a {
-    color: #034078;
-    font-weight: 600;
+    color: #2563eb;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
 }
 
 .error-message {
@@ -114,7 +124,7 @@ body {
 <div class="register-card">
 
     <div class="logo">
-        <h1>📚 Rumah Baca</h1>
+        <h1 style="display:flex;align-items:center;justify-content:center;gap:8px;"><svg style="width:28px;height:28px;color:#1e3a8a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg> Rumah Baca</h1>
     </div>
 
     <div class="welcome-text">

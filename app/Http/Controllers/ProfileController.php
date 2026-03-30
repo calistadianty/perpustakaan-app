@@ -24,12 +24,33 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
+    /**
+     * FUNGSI: Pembaruan Profil & Foto Avatar.
+     * Terdapat kode cerdas ISDIRTY: Jika pengguna mengganti alamat emailnya, 
+     * fungsi 'isDirty' akan mendeteksinya dan memaksa verifikasi ulang.
+     * Menyimpan file foto (avatar) di penyimpanan lokal ('public/avatars').
+     */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+
+        // Avatar Upload
+        if ($request->hasFile('avatar')) {
+            $request->validate([
+                'avatar' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], // Max 2MB
+            ]);
+
+            // Delete old avatar if exists
+            if ($request->user()->avatar) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($request->user()->avatar);
+            }
+
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $request->user()->avatar = $path;
         }
 
         $request->user()->save();
